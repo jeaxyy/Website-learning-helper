@@ -32,9 +32,6 @@ function loadTimerState() {
         timeRemaining = savedState.timeRemaining;
         isPaused = savedState.isPaused;
         updateTimerDisplay();
-        if (!isPaused) {
-            runTimer();
-        }
     } else {
         timeRemaining = workTimeInput.value * 60;
         updateTimerDisplay();
@@ -58,7 +55,7 @@ function runTimer() {
 
 startButton.addEventListener('click', () => {
     clearInterval(timerInterval);
-    if (!isPaused) {
+    if (isPaused || timeRemaining <= 0) {
         timeRemaining = isWorkSession ? workTimeInput.value * 60 : breakTimeInput.value * 60;
     }
     isPaused = false;
@@ -81,7 +78,6 @@ resetButton.addEventListener('click', () => {
     saveTimerState();
 });
 
-// Load the timer state when the page loads
 window.addEventListener('load', loadTimerState);
 
 // To-Do List
@@ -98,7 +94,6 @@ function saveTodos() {
 
 function renderTodos() {
     todoItems.innerHTML = '';
-
     todos.forEach((todo, index) => {
         const li = document.createElement('li');
         li.className = 'flex justify-between items-center bg-gray-50 rounded-lg p-3';
@@ -134,7 +129,6 @@ function renderTodos() {
         li.appendChild(buttons);
         todoItems.appendChild(li);
     });
-
     updateStats();
 }
 
@@ -147,7 +141,6 @@ function updateStats() {
 todoForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if (todoInput.value.trim() === '') return;
-
     todos.push({ text: todoInput.value.trim(), completed: false });
     saveTodos();
     renderTodos();
