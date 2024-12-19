@@ -35,7 +35,7 @@ Website ini dirancang untuk membantu proses belajar menjadi lebih menyenangkan d
 
         <!-- Pomodoro Timer -->
         <section id="pomodoro" class="mb-10">
-            <h2 class="section-title text-center">Learning Timer⏱︎ </h2>
+            <h2 class="section-title text-center">Learning Timer⏱︎</h2>
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -75,7 +75,7 @@ Website ini dirancang untuk membantu proses belajar menjadi lebih menyenangkan d
     </div>
 
     <footer class="text-center mt-10">
-        <p class="text-gray-600 text-sm">&copy; 2024 Jeaxxy. Hak cipta dilindungi undang-undang.</p>
+        <p class="text-gray-600 text-sm">&copy; 2024 Jeaxxy. All Rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
